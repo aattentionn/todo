@@ -32,7 +32,7 @@ function showList(){
             return done += key;
         }
     }
-    console.log(`"To Do: ", toDo, "In Progress: ", inProgress, "Done: ", done`);
+    console.log("To Do: ", toDo, "In Progress: ", inProgress, "Done: ", done);
 
 }
 
@@ -40,3 +40,4 @@ changeStatus("have a walk", "Done");
 addTask("take a photo");
 deleteTask("make a bed");
 showList();
+
