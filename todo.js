@@ -1,43 +1,43 @@
+const STATUS = {
+    TO_DO: 'To Do',
+    IN_PROGRESS: 'In Progress',
+    DONE: 'Done'
+};
+
 const list = {
-    "create a new practice task": "In Progress",
-    "make a bed": "Done",
-    "write a post": "To Do",
-    "have a walk": "To Do",
-}
+    "create a new practice task": STATUS.IN_PROGRESS,
+    "make a bed": STATUS.DONE,
+    "write a post": STATUS.TO_DO,
+};
 
-function changeStatus(task, status){
-    list[task] = status;
-}
+function addTask (goal) {
+    list[goal] = STATUS.TO_DO;
+    console.log(list);
+};
 
-function addTask(task) {
-    list[task] = "To Do";
-}
+function deleteTask (goal) {
+    delete list[goal];
+    console.log(list);
+};
 
-function deleteTask(task) {
-    delete list[task];
-}
+function changeStatus (goal, status) {
+    list[goal] = status;
+    console.log(list);
+};
 
-function showList(){
+function showList () {
+    for (goal in list) {
 
-    let toDo = "";
-    let inProgress = "";
-    let done = "";
-
-    for (let key in list) {
-        if ("To Do") {
-            return toDo += key;
-        } else if ("In Progress") {
-            return inProgress += key;
-        } else if ("Done") {
-            return done += key;
-        }
+        console.log(`${list[goal]}: \n\t${goal}`);
     }
-    console.log("To Do: ", toDo, "In Progress: ", inProgress, "Done: ", done);
 
-}
+};
 
-changeStatus("have a walk", "Done");
-addTask("take a photo");
-deleteTask("make a bed");
+
+addTask('cook breakfast');
+addTask('have a walk');
+deleteTask('have a walk');
+deleteTask('make a bed');
+changeStatus('create a new practice task', STATUS.DONE);
+changeStatus('cook breakfast', STATUS.IN_PROGRESS);
 showList();
-
